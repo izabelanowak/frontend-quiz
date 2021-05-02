@@ -18,7 +18,7 @@
 
 <body>
     <h1 class="header">Quiz o HTML, CSS i Javascript</h1>
-    <form class="form">
+    <form class="form js-form">
         <ul class="form__questionsList">
             <li class="form__question">
                 <fieldset class="form__questionField">
@@ -38,8 +38,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q1aC" name="question1" value="1C"
-                                class="js-question1-correct-answer">
+                            <input type="radio" id="q1aC" name="question1" value="1C" class="js-question1CorrectAnswer">
                             <label for="q1aC" class="form__answerText  js-correct">
                                 używamy kiedy chcemy zwrócić uwagę użytkownika na jakiś fragment treści,
                                 ale nie jest on ważniejszy niż pozostała treść
@@ -67,8 +66,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q2aB" name="question2" value="2B"
-                                class="js-question2-correct-answer">
+                            <input type="radio" id="q2aB" name="question2" value="2B" class="js-question2CorrectAnswer">
                             <label for="q2aB" class="form__answerText js-correct">
                                 znacznika &lt;th&gt;
                             </label>
@@ -94,8 +92,7 @@
                         załadowaniu strony użyjesz atrybutu:</legend>
                     <ol class="form__answersList">
                         <li class="form__answerField">
-                            <input type="radio" id="q3aA" name="question3" value="3A"
-                                class="js-question3-correct-answer">
+                            <input type="radio" id="q3aA" name="question3" value="3A" class="js-question3CorrectAnswer">
                             <label for="q3aA" class="form__answerText js-correct">
                                 autofocus
                             </label>
@@ -146,8 +143,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q4aD" name="question4" value="4D"
-                                class="js-question4-correct-answer">
+                            <input type="radio" id="q4aD" name="question4" value="4D" class="js-question4CorrectAnswer">
                             <label for="q4aD" class="form__answerText  js-correct">
                                 text-decoration: none;
                             </label>
@@ -179,8 +175,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q5aD" name="question5" value="5D"
-                                class="js-question5-correct-answer">
+                            <input type="radio" id="q5aD" name="question5" value="5D" class="js-question5CorrectAnswer">
                             <label for="q5aD" class="form__answerText js-correct">
                                 wszystkie powyższe odpowiedzi są poprawne, lecz sposób z odpowiedzi C jest złą praktyką
                             </label>
@@ -201,8 +196,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q6aB" name="question6" value="6B"
-                                class="js-question6-correct-answer">
+                            <input type="radio" id="q6aB" name="question6" value="6B" class="js-question6CorrectAnswer">
                             <label for="q6aB" class="form__answerText  js-correct">
                                 bloki i elementy nie mogą mieć modyfikatorów
                             </label>
@@ -228,8 +222,7 @@
 
                     <ol class="form__answersList">
                         <li class="form__answerField">
-                            <input type="radio" id="q7aA" name="question7" value="7A"
-                                class="js-question7-correct-answer">
+                            <input type="radio" id="q7aA" name="question7" value="7A" class="js-question7CorrectAnswer">
                             <label for="q7aA" class="form__answerText js-correct">
                                 musi zaczynać się od litery, _ lub $
                             </label>
@@ -274,8 +267,7 @@
                             </label>
                         </li>
                         <li class="form__answerField">
-                            <input type="radio" id="q8aC" name="question8" value="8C"
-                                class="js-question8-correct-answer">
+                            <input type="radio" id="q8aC" name="question8" value="8C" class="js-question8CorrectAnswer">
                             <label for="q8aC" class="form__answerText  js-correct">
                                 blur()
                             </label>
@@ -314,7 +306,7 @@
                         </li>
                         <li class="form__answerField">
                             <input type="radio" id="q9aD" name="question9" value="9D"
-                                class="js-question9-correct-answer">
+                                class="js-question10CorrectAnswer">
                             <label for="q9aD" class="form__answerText js-correct">
                                 wszystkie powyższe odpowiedzi są poprawne
                             </label>
@@ -336,7 +328,7 @@
                         </li>
                         <li class="form__answerField">
                             <input type="radio" id="q10aB" name="question10" value="10B"
-                                class="js-question10-correct-answer">
+                                class="js-question10CorrectAnswer">
                             <label for="q10aB" class="form__answerText  js-correct">
                                 .length
                             </label>
@@ -359,8 +351,8 @@
             </ol>
             <button type="submit" class="form__button">Sprawdź odpowiedzi</button>
             <button type="reset" class="form__button">Wyczyść odpowiedzi</button>
-            <div class="form__results form__results--hidden">
-                <p class="form__resultsText js-number-of-correct-answers"></p>
+            <div class="form__results form__results--hidden js-formResults">
+                <p class="form__resultsText js-numberOfCorrectAnswers"></p>
                 <p class="form__resultsText js-grade"></p>
                 <p class="form__resultsText js-comment"></p>
             </div>
