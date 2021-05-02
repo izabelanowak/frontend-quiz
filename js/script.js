@@ -23,8 +23,8 @@ formElement.addEventListener("submit", (event) => {
     let grade;
     let comment;
     let sum = 0;
-    for (let i = 0; i < 10; i++) {
-        if (correctAnswersTable[i]) {
+    for (const element of correctAnswersTable) {
+        if (element) {
             sum += 1;
         };
     }
