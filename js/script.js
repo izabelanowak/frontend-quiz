@@ -12,7 +12,9 @@
             document.querySelector(".js-question8CorrectAnswer").checked,
             document.querySelector(".js-question9CorrectAnswer").checked,
             document.querySelector(".js-question10CorrectAnswer").checked);
+
         let numberOfCorrectAnswers = 0;
+
         for (const element of correctAnswersTable) {
             if (element) {
                 numberOfCorrectAnswers += 1;
@@ -20,41 +22,48 @@
         }
         return numberOfCorrectAnswers;
     };
-
+    const switchGradeAndComment = (numberOfCorrectAnswers) => {
+        let grade;
+        let comment;
+        switch (numberOfCorrectAnswers) {
+            case 10:
+                return {
+                    grade: "5 - bardzo dobry",
+                    comment: "Świetnie! Oby tak dalej!"
+                };
+            case 9: case 8:
+                return {
+                    grade: "4 - dobry",
+                    comment: "Dobrze Ci idzie! Może następnym razem będzie jeszcze lepiej?"
+                };
+            case 7: case 6:
+                return {
+                    grade: "3 - dostateczny",
+                    comment: "Nie jest źle, ale następnym razem postaraj się bardziej!"
+                };
+            case 5:
+                return {
+                    grade: "2 - dopuszczający",
+                    comment: "Musisz się bardziej postarać!"
+                };
+            default:
+                return {
+                    grade: "1 - niedostateczny",
+                    comment: "Kiepsko. Spróbuj jeszcze raz, a być może będzie lepiej? Trzymam kciuki!"
+                };
+        };
+    };
     const showResults = (numberOfCorrectAnswers) => {
         const resultsFieldElement = document.querySelector(".js-formResults");
         const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
         const gradeElement = document.querySelector(".js-grade");
         const commentElement = document.querySelector(".js-comment");
 
-
         resultsFieldElement.classList.toggle("form__results--hidden");
         resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
 
-        let grade;
-        let comment;
-        switch (numberOfCorrectAnswers) {
-            case 10:
-                grade = "5 - bardzo dobry";
-                comment = "Świetnie! Oby tak dalej!";
-                break;
-            case 9: case 8:
-                grade = "4 - dobry";
-                comment = "Dobrze Ci idzie! Może następnym razem będzie jeszcze lepiej?";
-                break;
-            case 7: case 6:
-                grade = "3 - dostateczny";
-                comment = "Nie jest źle, ale następnym razem postaraj się bardziej!";
-                break;
-            case 5:
-                grade = "2 - dopuszczający";
-                comment = "Musisz się bardziej postarać!";
-                break;
-            default:
-                grade = "1 - niedostateczny";
-                comment = "Kiepsko. Spróbuj jeszcze raz, a być może będzie lepiej? Trzymam kciuki!";
-                break;
-        }
+        let { grade, comment } = switchGradeAndComment(numberOfCorrectAnswers);
+
         gradeElement.innerText = `Twoja ocena to: ${grade}`;
         commentElement.innerText = comment;
 
