@@ -1,15 +1,8 @@
 {
     const formElement = document.querySelector(".js-form");
-    const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
-    const gradeElement = document.querySelector(".js-grade");
-    const commentElement = document.querySelector(".js-comment");
-    const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
     const answerElement = document.querySelectorAll(".js-correct");
-    const resultsFieldElement = document.querySelector(".js-formResults");
 
-    formElement.addEventListener("submit", (event) => {
-        event.preventDefault();
-
+    const calculateNumberOfCorrectAnswers = () => {
         const correctAnswersTable = new Array(document.querySelector(".js-question1CorrectAnswer").checked,
             document.querySelector(".js-question2CorrectAnswer").checked,
             document.querySelector(".js-question3CorrectAnswer").checked,
@@ -20,19 +13,28 @@
             document.querySelector(".js-question8CorrectAnswer").checked,
             document.querySelector(".js-question9CorrectAnswer").checked,
             document.querySelector(".js-question10CorrectAnswer").checked);
+        let numberOfCorrectAnswers = 0;
+        for (const element of correctAnswersTable) {
+            if (element) {
+                numberOfCorrectAnswers += 1;
+            };
+        }
+        return numberOfCorrectAnswers;
+    };
+
+    const showResults = (numberOfCorrectAnswers) => {
+        const resultsFieldElement = document.querySelector(".js-formResults");
+        const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
+        const gradeElement = document.querySelector(".js-grade");
+        const commentElement = document.querySelector(".js-comment");
+        const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
+
+        resultsFieldElement.classList.toggle("form__results--hidden");
+        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
 
         let grade;
         let comment;
-        let sum = 0;
-        for (const element of correctAnswersTable) {
-            if (element) {
-                sum += 1;
-            };
-        }
-        resultsFieldElement.classList.toggle("form__results--hidden");
-        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${sum}`;
-
-        switch (sum) {
+        switch (numberOfCorrectAnswers) {
             case 10:
                 grade = "5 - bardzo dobry";
                 comment = "Świetnie! Oby tak dalej!";
@@ -58,7 +60,17 @@
         commentElement.innerText = comment;
 
         correctAnswersButtonElement.classList.toggle("form__button--hidden");
-    });
+    };
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const numberOfCorrectAnswers = calculateNumberOfCorrectAnswers();
+
+        showResults(numberOfCorrectAnswers);
+
+    };
+
+    formElement.addEventListener("submit", onFormSubmit);
 
     correctAnswersButtonElement.addEventListener("click", () => {
         const showText = "Wyświetl poprawne odpowiedzi";
