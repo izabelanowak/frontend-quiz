@@ -24,7 +24,7 @@ formElement.addEventListener("submit", (event) => {
     let comment;
     let sum = 0;
     for (let i = 0; i < 10; i++) {
-        if (correctAnswersTable[i] === true) {
+        if (correctAnswersTable[i]) {
             sum += 1;
         };
     }
