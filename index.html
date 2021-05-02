@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz o HTML, CSS, JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" />
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
+    <script defer src="js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <h1 class="header">Quiz o HTML, CSS i Javascript</h1>
+    <form class="form">
+        <ul class="form__questionsList">
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 1: Znacznik &lt;b&gt; w HTML:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q1aA" name="question1" value="1A">
+                            <label for="q1aA" class="form__answerText">
+                                tworzy znak nowej linii
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q1aB" name="question1" value="1B">
+                            <label for="q1aB" class="form__answerText">
+                                używamy, gdy chcemy np. położyć nacisk na jakieś słowo w zdaniu
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q1aC" name="question1" value="1C"
+                                class="js-question1-correct-answer">
+                            <label for="q1aC" class="form__answerText  js-correct">
+                                używamy kiedy chcemy zwrócić uwagę użytkownika na jakiś fragment treści,
+                                ale nie jest on ważniejszy niż pozostała treść
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q1aD" name="question1" value="1D">
+                            <label for="q1aD" class="form__answerText">
+                                używamy do pojęć technicznych, słów w obcym języku
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 2: Do oznaczenia komórki tabeli jak nagłówka w HTML
+                        użyjesz:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q2aA" name="question2" value="2A">
+                            <label for="q2aA" class="form__answerText">
+                                znacznika &lt;td&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q2aB" name="question2" value="2B"
+                                class="js-question2-correct-answer">
+                            <label for="q2aB" class="form__answerText js-correct">
+                                znacznika &lt;th&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q2aC" name="question2" value="2C">
+                            <label for="q2aC" class="form__answerText">
+                                znacznika &lt;tr&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q2aD" name="question2" value="2D">
+                            <label for="q2aD" class="form__answerText">
+                                znacznika &lt;table&gt;
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 3: Aby automatycznie przejść do pola formularza tuż po
+                        załadowaniu strony użyjesz atrybutu:</legend>
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q3aA" name="question3" value="3A"
+                                class="js-question3-correct-answer">
+                            <label for="q3aA" class="form__answerText js-correct">
+                                autofocus
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q3aB" name="question3" value="3B">
+                            <label for="q3aB" class="form__answerText">
+                                readonly
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q3aC" name="question3" value="3C">
+                            <label for="q3aC" class="form__answerText">
+                                placeholder
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q3aD" name="question3" value="3D">
+                            <label for="q3aD" class="form__answerText">
+                                disabled
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 4: Aby usunąć domyślne podkreślenie podczas stylowania
+                        linków w CSS użyjesz:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q4aA" name="question4" value="4A">
+                            <label for="q4aA" class="form__answerText">
+                                text-transform: none;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q4aB" name="question4" value="4B">
+                            <label for="q4aB" class="form__answerText">
+                                text-underline: none;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q4aC" name="question4" value="4C">
+                            <label for="q4aC" class="form__answerText">
+                                text-style: none;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q4aD" name="question4" value="4D"
+                                class="js-question4-correct-answer">
+                            <label for="q4aD" class="form__answerText  js-correct">
+                                text-decoration: none;
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 5: Wskaż poprawny sposób osadzania CSS w HTML:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q5aA" name="question5" value="5A">
+                            <label for="q5aA" class="form__answerText">
+                                w znaczniku &lt;style&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q5aB" name="question5" value="5B">
+                            <label for="q5aB" class="form__answerText">
+                                w osobnym pliku używając znacznika: &lt;link href="css/style.css" rel="stylesheet"&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q5aC" name="question5" value="5C">
+                            <label for="q5aC" class="form__answerText">
+                                za pomocą atrybutu style &lt;p style="color: red"&gt;Tekst&lt;/p&gt;
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q5aD" name="question5" value="5D"
+                                class="js-question5-correct-answer">
+                            <label for="q5aD" class="form__answerText js-correct">
+                                wszystkie powyższe odpowiedzi są poprawne, lecz sposób z odpowiedzi C jest złą praktyką
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 6: Zaznacz odpowiedź która nie jest zgodna z konwencją
+                        BEM:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q6aA" name="question6" value="6A">
+                            <label for="q6aA" class="form__answerText">
+                                zawsze stylujemy po klasach
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q6aB" name="question6" value="6B"
+                                class="js-question6-correct-answer">
+                            <label for="q6aB" class="form__answerText  js-correct">
+                                bloki i elementy nie mogą mieć modyfikatorów
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q6aC" name="question6" value="6C">
+                            <label for="q6aC" class="form__answerText">
+                                stronę dzielimy na bloki
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q6aD" name="question6" value="6D">
+                            <label for="q6aD" class="form__answerText">
+                                wewnątrz bloków znajdują się elementy, które nie są samodzielne
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 7: Nazwa zmiennej w JavaScript:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q7aA" name="question7" value="7A"
+                                class="js-question7-correct-answer">
+                            <label for="q7aA" class="form__answerText js-correct">
+                                musi zaczynać się od litery, _ lub $
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q7aB" name="question7" value="7B">
+                            <label for="q7aB" class="form__answerText">
+                                wielkość liter nie ma znaczenia
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q7aC" name="question7" value="7C">
+                            <label for="q7aC" class="form__answerText">
+                                nie może zawierać cyfr
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q7aD" name="question7" value="7D">
+                            <label for="q7aD" class="form__answerText">
+                                nie ma zarezerwowanych słów, które nie mogą być nazwą zmiennej
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 8: Metoda pól w Javascript, która służy do usunięcia
+                        focus z elementu to:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q8aA" name="question8" value="8A">
+                            <label for="q8aA" class="form__answerText">
+                                unfocus()
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q8aB" name="question8" value="8B">
+                            <label for="q8aB" class="form__answerText">
+                                focus()
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q8aC" name="question8" value="8C"
+                                class="js-question8-correct-answer">
+                            <label for="q8aC" class="form__answerText  js-correct">
+                                blur()
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q8aD" name="question8" value="8D">
+                            <label for="q8aD" class="form__answerText">
+                                click()
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 9: Oznaczenie NaN w JavaScript:</legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q9aA" name="question9" value="9A">
+                            <label for="q9aA" class="form__answerText">
+                                to liczba, która nie jest liczbą
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q9aB" name="question9" value="9B">
+                            <label for="q9aB" class="form__answerText">
+                                może powstać na wiele sposobów
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q9aC" name="question9" value="9C">
+                            <label for="q9aC" class="form__answerText">
+                                każda operacja arytemtyczna z NaN da NaN
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q9aD" name="question9" value="9D"
+                                class="js-question9-correct-answer">
+                            <label for="q9aD" class="form__answerText js-correct">
+                                wszystkie powyższe odpowiedzi są poprawne
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            <li class="form__question">
+                <fieldset class="form__questionField">
+                    <legend class="form__questionText">Pytanie 10: Aby sprawdzić w Javascript długość łancucha użyjesz:
+                    </legend>
+
+                    <ol class="form__answersList">
+                        <li class="form__answerField">
+                            <input type="radio" id="q10aA" name="question10" value="10A">
+                            <label for="q10aA" class="form__answerText">
+                                .lenght
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q10aB" name="question10" value="10B"
+                                class="js-question10-correct-answer">
+                            <label for="q10aB" class="form__answerText  js-correct">
+                                .length
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q10aC" name="question10" value="10C">
+                            <label for="q10aC" class="form__answerText">
+                                .legnth
+                            </label>
+                        </li>
+                        <li class="form__answerField">
+                            <input type="radio" id="q10aD" name="question10" value="10D">
+                            <label for="q10aD" class="form__answerText">
+                                .legnht
+                            </label>
+                        </li>
+                    </ol>
+                </fieldset>
+            </li>
+            </ol>
+            <button type="submit" class="form__button">Sprawdź odpowiedzi</button>
+            <button type="reset" class="form__button">Wyczyść odpowiedzi</button>
+            <div class="form__results form__results--hidden">
+                <p class="form__resultsText js-number-of-correct-answers"></p>
+                <p class="form__resultsText js-grade"></p>
+                <p class="form__resultsText js-comment"></p>
+            </div>
+            <button type="button" class="form__button form__button--hidden js-correctAnswersButton">Wyświetl poprawne
+                odpowiedzi</button>
+    </form>
+</body>
+
+</html>

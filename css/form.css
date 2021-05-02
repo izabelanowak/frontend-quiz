@@ -1,0 +1,99 @@
+.form {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form__nameLabel {
+    color: #eee;
+    margin: 10px;
+    padding: 10px 20px;
+}
+
+.form__input {
+    margin-left: 10px;
+    padding: 10px 20px;
+}
+
+.form__question {
+    margin-bottom: 20px;
+}
+
+.form__questionsList {
+    list-style: none;
+    padding-left: 0;
+    margin: 20px;
+}
+
+.form__questionField {
+    border: 2px solid darkgoldenrod;
+    border-radius: 20px;
+    color: #eee;
+}
+
+.form__questionText {
+    color: #000;
+    background-color: #fff;
+    padding: 10px 20px;
+    width: 100%;
+    border-bottom: 2px solid darkgoldenrod;
+    border-radius: 20px;
+}
+
+.form__answersList {
+    list-style-type: upper-latin;
+}
+
+.form__answerField {
+    padding: 10px;
+}
+
+.form__answerText {
+    display: inline-block;
+    padding: 10px;
+}
+
+.form__answerText--correct {
+    background-color: green;
+    border-radius: 20px;
+}
+
+.form__answerText:hover {
+    background-color: darkgoldenrod;
+    color: #000;
+    border-radius: 20px;
+}
+
+.form__button {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.form__button--hidden {
+    display: none;
+}
+
+.form__button:hover {
+    background-color: darkgoldenrod;
+    border: 2px solid #eee;
+}
+
+.form__button:active {
+    color: #eee;
+}
+
+.form__results {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 2px solid darkgoldenrod;
+    border-radius: 20px;
+}
+
+.form__results--hidden {
+    display: none;
+}
+
+.form__resultsText {
+    color: #eee;
+}
