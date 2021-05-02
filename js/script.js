@@ -1,6 +1,5 @@
 {
-    const formElement = document.querySelector(".js-form");
-    const answerElement = document.querySelectorAll(".js-correct");
+    const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
 
     const calculateNumberOfCorrectAnswers = () => {
         const correctAnswersTable = new Array(document.querySelector(".js-question1CorrectAnswer").checked,
@@ -27,7 +26,7 @@
         const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
         const gradeElement = document.querySelector(".js-grade");
         const commentElement = document.querySelector(".js-comment");
-        const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
+
 
         resultsFieldElement.classList.toggle("form__results--hidden");
         resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
@@ -65,20 +64,25 @@
         event.preventDefault();
 
         const numberOfCorrectAnswers = calculateNumberOfCorrectAnswers();
-
         showResults(numberOfCorrectAnswers);
-
     };
 
-    formElement.addEventListener("submit", onFormSubmit);
-
-    correctAnswersButtonElement.addEventListener("click", () => {
+    const onAnswersButtonClick = () => {
+        const answerElement = document.querySelectorAll(".js-correct");
         const showText = "Wyświetl poprawne odpowiedzi";
         const hideText = "Ukryj poprawne odpowiedzi";
         correctAnswersButtonElement.innerText = correctAnswersButtonElement.innerText === showText ? hideText : showText;
 
-        for (const i = 0; i < 10; i++) {
+        for (let i = 0; i < 10; i++) {
             answerElement[i].classList.toggle("form__answerText--correct");
         }
-    });
+    };
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form");
+        formElement.addEventListener("submit", onFormSubmit);
+
+        correctAnswersButtonElement.addEventListener("click", onAnswersButtonClick);
+    };
+    init();
 }
