@@ -53,22 +53,27 @@
                 };
         };
     };
-    const showResults = (numberOfCorrectAnswers) => {
+
+    const toggleElementsAfterSubmit = () => {
         const resultsFieldElement = document.querySelector(".js-formResults");
+
+        resultsFieldElement.classList.toggle("form__results--hidden");
+        correctAnswersButtonElement.classList.toggle("form__button--hidden");
+    };
+
+    const showResults = (numberOfCorrectAnswers) => {
         const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
         const gradeElement = document.querySelector(".js-grade");
         const commentElement = document.querySelector(".js-comment");
 
-        resultsFieldElement.classList.toggle("form__results--hidden");
-        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
-
+        toggleElementsAfterSubmit();
         let { grade, comment } = switchGradeAndComment(numberOfCorrectAnswers);
 
+        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
         gradeElement.innerText = `Twoja ocena to: ${grade}`;
         commentElement.innerText = comment;
-
-        correctAnswersButtonElement.classList.toggle("form__button--hidden");
     };
+
     const onFormSubmit = (event) => {
         event.preventDefault();
 
@@ -89,8 +94,8 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        formElement.addEventListener("submit", onFormSubmit);
 
+        formElement.addEventListener("submit", onFormSubmit);
         correctAnswersButtonElement.addEventListener("click", onAnswersButtonClick);
     };
     init();
