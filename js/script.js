@@ -1,6 +1,4 @@
 {
-    const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
-
     const calculateNumberOfCorrectAnswers = () => {
         const correctAnswersTable = new Array(document.querySelector(".js-question1CorrectAnswer").checked,
             document.querySelector(".js-question2CorrectAnswer").checked,
@@ -54,19 +52,19 @@
         };
     };
 
-    const toggleElementsAfterSubmit = () => {
+    const toggleElementsAfterSubmit = (correctAnswersButtonElement) => {
         const resultsFieldElement = document.querySelector(".js-formResults");
 
         resultsFieldElement.classList.toggle("form__results--hidden");
         correctAnswersButtonElement.classList.toggle("form__button--hidden");
     };
 
-    const showResults = (numberOfCorrectAnswers) => {
+    const showResults = (numberOfCorrectAnswers, correctAnswersButtonElement) => {
         const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
         const gradeElement = document.querySelector(".js-grade");
         const commentElement = document.querySelector(".js-comment");
 
-        toggleElementsAfterSubmit();
+        toggleElementsAfterSubmit(correctAnswersButtonElement);
         let { grade, comment } = switchGradeAndComment(numberOfCorrectAnswers);
 
         resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
@@ -74,14 +72,14 @@
         commentElement.innerText = comment;
     };
 
-    const onFormSubmit = (event) => {
+    const onFormSubmit = (event, correctAnswersButtonElement) => {
         event.preventDefault();
 
         const numberOfCorrectAnswers = calculateNumberOfCorrectAnswers();
-        showResults(numberOfCorrectAnswers);
+        showResults(numberOfCorrectAnswers, correctAnswersButtonElement);
     };
 
-    const onAnswersButtonClick = () => {
+    const onAnswersButtonClick = (correctAnswersButtonElement) => {
         const answerElement = document.querySelectorAll(".js-correct");
         const showText = "Wyświetl poprawne odpowiedzi";
         const hideText = "Ukryj poprawne odpowiedzi";
@@ -94,9 +92,14 @@
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
+        const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
 
-        formElement.addEventListener("submit", onFormSubmit);
-        correctAnswersButtonElement.addEventListener("click", onAnswersButtonClick);
+        formElement.addEventListener("submit", () => {
+            onFormSubmit(event, correctAnswersButtonElement);
+        });
+        correctAnswersButtonElement.addEventListener("click", () => {
+            onAnswersButtonClick(correctAnswersButtonElement);
+        });
     };
     init();
 }
