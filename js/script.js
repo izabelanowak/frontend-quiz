@@ -1,6 +1,9 @@
 {
-    const calculateNumberOfCorrectAnswers = () => {
-        const correctAnswersTable = new Array(document.querySelector(".js-question1CorrectAnswer").checked,
+    const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
+
+    const getCorrectAnswersCount = () => {
+        const correctAnswersTable = new Array(
+            document.querySelector(".js-question1CorrectAnswer").checked,
             document.querySelector(".js-question2CorrectAnswer").checked,
             document.querySelector(".js-question3CorrectAnswer").checked,
             document.querySelector(".js-question4CorrectAnswer").checked,
@@ -9,21 +12,13 @@
             document.querySelector(".js-question7CorrectAnswer").checked,
             document.querySelector(".js-question8CorrectAnswer").checked,
             document.querySelector(".js-question9CorrectAnswer").checked,
-            document.querySelector(".js-question10CorrectAnswer").checked);
-
-        let numberOfCorrectAnswers = 0;
-
-        for (const element of correctAnswersTable) {
-            if (element) {
-                numberOfCorrectAnswers += 1;
-            };
-        }
-        return numberOfCorrectAnswers;
+            document.querySelector(".js-question10CorrectAnswer").checked,
+        );
+        return correctAnswersTable.filter(Boolean).length;
     };
-    const switchGradeAndComment = (numberOfCorrectAnswers) => {
-        let grade;
-        let comment;
-        switch (numberOfCorrectAnswers) {
+    const getGradeAndComment = (points) => {
+
+        switch (points) {
             case 10:
                 return {
                     grade: "5 - bardzo dobry",
@@ -52,54 +47,51 @@
         };
     };
 
-    const toggleElementsAfterSubmit = (correctAnswersButtonElement) => {
+    const toggleElements = () => {
         const resultsFieldElement = document.querySelector(".js-formResults");
 
         resultsFieldElement.classList.toggle("form__results--hidden");
         correctAnswersButtonElement.classList.toggle("form__button--hidden");
     };
 
-    const showResults = (numberOfCorrectAnswers, correctAnswersButtonElement) => {
-        const resultElement = document.querySelector(".js-numberOfCorrectAnswers");
+    const showResults = (points) => {
+        const resultElement = document.querySelector(".js-points");
         const gradeElement = document.querySelector(".js-grade");
         const commentElement = document.querySelector(".js-comment");
 
-        toggleElementsAfterSubmit(correctAnswersButtonElement);
-        let { grade, comment } = switchGradeAndComment(numberOfCorrectAnswers);
+        toggleElements();
+        const { grade, comment } = getGradeAndComment(points);
 
-        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${numberOfCorrectAnswers}`;
+        resultElement.innerText = `Liczba poprawnych odpowiedzi: ${points}`;
         gradeElement.innerText = `Twoja ocena to: ${grade}`;
         commentElement.innerText = comment;
     };
 
-    const onFormSubmit = (event, correctAnswersButtonElement) => {
+    const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const numberOfCorrectAnswers = calculateNumberOfCorrectAnswers();
-        showResults(numberOfCorrectAnswers, correctAnswersButtonElement);
+        const points = getCorrectAnswersCount();
+        showResults(points);
     };
 
-    const onAnswersButtonClick = (correctAnswersButtonElement) => {
-        const answerElement = document.querySelectorAll(".js-correct");
+    const onAnswersButtonClick = () => {
+        const answerElements = document.querySelectorAll(".js-correct");
         const showText = "Wyświetl poprawne odpowiedzi";
         const hideText = "Ukryj poprawne odpowiedzi";
+
         correctAnswersButtonElement.innerText = correctAnswersButtonElement.innerText === showText ? hideText : showText;
 
-        for (let i = 0; i < 10; i++) {
-            answerElement[i].classList.toggle("form__answerText--correct");
-        }
+        answerElements.forEach(element => {
+            element.classList.toggle("form__answerText--correct");
+        });
     };
 
     const init = () => {
         const formElement = document.querySelector(".js-form");
-        const correctAnswersButtonElement = document.querySelector(".js-correctAnswersButton");
 
-        formElement.addEventListener("submit", () => {
-            onFormSubmit(event, correctAnswersButtonElement);
-        });
-        correctAnswersButtonElement.addEventListener("click", () => {
-            onAnswersButtonClick(correctAnswersButtonElement);
-        });
+        formElement.addEventListener("submit", onFormSubmit);
+        correctAnswersButtonElement.addEventListener("click", onAnswersButtonClick);
     };
+
     init();
 }
